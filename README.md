@@ -29,10 +29,7 @@ Slider_Verification/
 - 用户名：`root`
 - 密码：`12345`
 
-> 说明：本机 IP 为 `172.16.91.4`，MySQL 就装在本机。但通过 LAN IP `172.16.91.4`
-> 连接会被 MySQL 的主机访问策略拒绝（`Host is not allowed to connect`），
-> 因此用 `127.0.0.1` 连接同一台本机 MySQL，无需改动 MySQL 权限。
-> 如必须用 `172.16.91.4` 访问，在 MySQL 中执行：
+
 > `sql
 > CREATE USER 'root'@'%' IDENTIFIED BY '12345';
 > GRANT ALL PRIVILEGES ON *.* TO 'root'@'%';
@@ -115,7 +112,7 @@ npm run dev
 
 ## 使用流程
 
-1. 确保 MySQL 已启动（本机 172.16.91.4，端口 3306）。
+1. 确保 MySQL 已启动
 2. 在 [验证码控制台](https://console.cloud.tencent.com/captcha) 新建验证，拿到 CaptchaAppId 和 AppSecretKey。
 3. 在 [CAM 密钥管理](https://console.cloud.tencent.com/cam/capi) 拿到 SecretId 和 SecretKey。
 4. 填入 `frontend/src/captcha.js` 和 `backend/src/main/resources/application.yml`。
