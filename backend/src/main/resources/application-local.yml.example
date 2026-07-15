@@ -1,0 +1,10 @@
+# 本地配置模板 —— 复制本文件为 application-local.yml 并填入真实密钥
+#   cp application-local.yml.example application-local.yml
+# application-local.yml 已在 .gitignore 中，不会被提交
+captcha:
+  enabled: true                          # 开启后端票据校验
+  captcha-app-id: 你的CaptchaAppId       # 验证码控制台 -> 验证管理 -> 基础配置
+  app-secret-key: 你的AppSecretKey       # 同上
+  secret-id: 你的SecretId                # CAM 访问管理 -> API密钥管理
+  secret-key: 你的SecretKey              # 同上
+  region: ap-guangzhou

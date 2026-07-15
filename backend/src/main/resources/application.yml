@@ -1,0 +1,32 @@
+server:
+  port: 8080
+
+spring:
+  profiles:
+    # 自动加载 application-local.yml（该文件在 .gitignore 中，不提交）
+    # 克隆项目后复制 application-local.yml.example 为 application-local.yml 并填入真实密钥
+    active: local
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/login_demo?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=Asia/Shanghai&characterEncoding=utf-8&allowPublicKeyRetrieval=true
+    username: root
+    password: 12345
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+# 腾讯云滑动验证码配置
+# 真实密钥放在 application-local.yml（不提交），此处为占位符
+captcha:
+  # 是否开启后端票据校验（false=跳过，开发联调用；true=调用腾讯云API校验）
+  # 开启后需在 application-local.yml 中填入真实密钥
+  enabled: false
+  captcha-app-id: 你的CaptchaAppId
+  app-secret-key: 你的AppSecretKey
+  secret-id: 你的SecretId
+  secret-key: 你的SecretKey
+  region: ap-guangzhou
